@@ -41,12 +41,11 @@
 <script>
     const BASE_URL = 'https://jsonplaceholder.typicode.com';
 
-    // 1. Загрузка постов
     document.getElementById('loadPosts').addEventListener('click', async () => {
         try {
             const response = await axios.get(`${BASE_URL}/posts`);
             const postsList = document.getElementById('postsList');
-            postsList.innerHTML = ''; // Очистить список перед добавлением
+            postsList.innerHTML = '';
             response.data.forEach(post => {
                 const listItem = document.createElement('li');
                 listItem.textContent = post.title;
@@ -57,7 +56,7 @@
         }
     });
 
-    // 2. Создание нового поста
+
     document.getElementById('createPost').addEventListener('click', async () => {
         const newPost = {
             title: 'Мой первый пост',
@@ -89,7 +88,6 @@
         }
     });
 
-    // 4. Удаление поста
     document.getElementById('deletePost').addEventListener('click', async () => {
         try {
             const response = await axios.delete(`${BASE_URL}/posts/1`);

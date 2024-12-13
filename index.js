@@ -15,10 +15,9 @@ document.getElementById('loadPosts').addEventListener('click', async () => {
     }
 });
 
-
 document.getElementById('createPost').addEventListener('click', async () => {
     const newPost = {
-        title: 'Моя первая запись',
+        title: 'Моя запись',
         body: 'Это содержимое записи',
         userId: 1,
     };
@@ -26,16 +25,22 @@ document.getElementById('createPost').addEventListener('click', async () => {
         const response = await axios.post(`${BASE_URL}/posts`, newPost);
         const newPostResponse = document.getElementById('newPostResponse');
         newPostResponse.innerHTML = `<li>Созданная запись: ${response.data.title}</li>`;
+
+        // После создания нового поста обновляем список всех постов
+        const postsList = document.getElementById('postsList');
+        const listItem = document.createElement('li');
+        listItem.textContent = response.data.title;
+        postsList.appendChild(listItem);
     } catch (error) {
         console.error('Ошибка:', error);
     }
 });
 
-
+// 3. Обновление поста
 document.getElementById('updatePost').addEventListener('click', async () => {
     const updatedPost = {
         title: 'Обновленная запись',
-        body: 'Это обновленное содержимое',
+        body: 'Это обновленная запись',
         userId: 1,
     };
     try {
@@ -56,4 +61,5 @@ document.getElementById('deletePost').addEventListener('click', async () => {
         console.error('Ошибка :', error);
     }
 });
+
 

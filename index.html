@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        button {
+            background-color: #ff66b2;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #ff3385;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+<h1>JSONPlaceholder </h1>
+
+<h2>1. Показать записи</h2>
+<button id="loadPosts">Показать</button>
+<ul id="postsList"></ul>
+
+<h2>2. Создать новую запись</h2>
+<button id="createPost">Создать запись</button>
+<ul id="newPostResponse"></ul>
+
+<h2>3. Обновить запись</h2>
+<button id="updatePost">Обновить запись</button>
+<ul id="updatePostResponse"></ul>
+
+<h2>4. Удалить запись</h2>
+<button id="deletePost">Удалить запись</button>
+<ul id="deletePostResponse"></ul>
+<script src="index.js"></script>
+</body>
+</html>
